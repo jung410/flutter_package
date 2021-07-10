@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false, // debug 띠 삭제
       enableLog: true, // getX log 허용
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: '플러터 레퍼런스'),
     );
   }
 }
@@ -31,39 +30,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        centerTitle: true,
+        title: Text(
+          widget.title,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+          children: [
+            _buildMainButton('페이지 라우팅'),
+            _buildMainButton('리스트 무한 스크롤 및 당겨서 새로고침'),
+            _buildMainButton('Alert 창'),
+            _buildMainButton('BottomNavigation'),
+            _buildMainButton('Data Transfer'),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildMainButton(String text) {
+    return Center(
+      child: Container(
+        width: Get.width * 0.87,
+        child: TextButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              Colors.black.withOpacity(0.85),
+            ),
+          ),
+          onPressed: () {},
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
