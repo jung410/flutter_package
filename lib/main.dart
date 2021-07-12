@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_package/views/alert/alert_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -43,34 +44,40 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _buildMainButton('페이지 라우팅'),
-            _buildMainButton('리스트 무한 스크롤 및 당겨서 새로고침'),
-            _buildMainButton('Alert 창'),
-            _buildMainButton('BottomNavigation'),
-            _buildMainButton('Data Transfer'),
+            _buildMainButton('페이지 라우팅', () {
+              Get.to(AlertScreen());
+            }),
+            _buildMainButton('리스트 무한 스크롤 및 당겨서 새로고침', () {
+              Get.to(AlertScreen());
+            }),
+            _buildMainButton('Alert 창', () {
+              Get.to(AlertScreen());
+            }),
+            _buildMainButton('BottomNavigation', () {
+              Get.to(AlertScreen());
+            }),
+            _buildMainButton('Data Transfer', () {
+              Get.to(AlertScreen());
+            }),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildMainButton(String text) {
-    return Center(
-      child: Container(
-        width: Get.width * 0.87,
-        child: TextButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-              Colors.black.withOpacity(0.85),
-            ),
-          ),
-          onPressed: () {},
+  Widget _buildMainButton(String text, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Center(
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 5.0),
+          alignment: Alignment.center,
+          color: Colors.black,
+          width: Get.width * 0.87,
+          height: Get.height * 0.07,
           child: Text(
             text,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
       ),
