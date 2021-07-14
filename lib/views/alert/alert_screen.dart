@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'components/body.dart';
 
 class AlertScreen extends StatelessWidget {
-  // static String routeName = "/alert";
+  static String routeName = "/alert";
 
   @override
   Widget build(BuildContext context) {
