@@ -8,19 +8,19 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             _buildMainButton('페이지 라우팅', () {
-              Get.toNamed('/alert');
+              // Get.toNamed('/alert');
             }),
             _buildMainButton('리스트 무한 스크롤 및 당겨서 새로고침', () {
-              Get.toNamed('/alert');
+              // Get.toNamed('/alert');
             }),
             _buildMainButton('Alert 창', () {
               Get.toNamed('/alert');
             }),
             _buildMainButton('BottomNavigation', () {
-              Get.toNamed('/alert');
+              // Get.toNamed('/alert');
             }),
             _buildMainButton('Data Transfer', () {
-              Get.toNamed('/alert');
+              // Get.toNamed('/alert');
             }),
           ],
         ),
